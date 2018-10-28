@@ -1,0 +1,240 @@
+20170129_171236.jpg
+date: 01.2017
+description: Caledonian Canal, Bealy Firth,
+Inverness.
+
+DSCF0021.JPG
+date: 08.2012
+description: View for Loch Ness from Meall Fuar-mhonaidh.
+
+DSCF1160.JPG
+date: 03.2011
+description: A grey Squirrel in Edinburgh Botanic Gardens.
+
+DSCF1415.JPG
+date: 09.2016
+description: Sunrise on Nevis Park.
+
+DSCF1570.JPG
+date: 04. 2010
+description: Walking down from the top of Ben Nevis.
+
+DSCF1686.JPG
+date: 04.2010
+description: Rainbow on the side of Ben Nevis as seen from Glen Nevis campsite.
+
+DSCF1846.JPG
+date: 01.2013
+description: Waxwings on top of a tree.
+
+DSCF1975.JPG
+date: 07.2018
+description: Rose and Lavender in the garden.
+
+DSCF2153.jpg
+date:04.2011
+description: Cramond waterfront, Edinburgh.
+
+DSCF2181.jpg
+date: 09.2018
+description: Butterfly on the lavender flowers.
+
+DSCF2295.jpg
+date:07.2018
+description:A hare at Skara Brea Prehistoric Village, Orkney.
+
+DSCF2450.jpg
+date: 07.2018
+description: Standing Stones of Stenness, Mainland Orkney.
+
+DSCF2567.jpg
+date:07.2018
+description:Inside Blackhammer Chambered Cairn, Rousay Island, Orkney.
+
+DSCF2644.jpg
+date:07.18
+description: Sunset at Kirkwall Harbour. Mainland, Orkney.
+
+DSCF2691.jpg
+date:07.2018
+description: Kirkwall Cathedral at night. Kirkwall, Mainland, Orkney.
+
+DSCF2801.jpg
+date:03.2013
+description: A blackbird feeding on mealworm in the garden.
+
+DSCF3250.jpg
+date:02.2013
+description: Trotternish Ridge view from Quiraing, Isle of Skye.
+
+DSCF3366.jpg
+date:07.2011
+description: Coastal cliffs near Trefin, Wales.
+
+DSCF3815.jpg
+date:02.2013
+description: Mealt Falls, Isle of Skye.
+
+DSCF3986.jpg
+date:09.2014
+description: Chaffinch in Inverness Botanic Gardens.
+
+DSCF4989.jpg
+date:05.2017
+description: Blooming cactus, Wrocław Botanic Gardens.
+
+DSCF5511.jpg
+date:06.2013
+description: Camping at Borlum Farm in Drumnadrochit.
+
+DSCF5730.jpg
+date:11.2011
+description: Evening falling over Tatra mountains.
+
+DSCF5818.jpg
+date: 08.2015
+description: Cornish Chough hunting worms, Lizard, Cornwall.
+
+DSCF5841.jpg
+date:08.2015
+description: Coastal rock formation at Lizard Point in Cornwall.
+
+DSCF5858.jpg
+date:05.2017
+description: Meerkat at Wrocław Zoo.
+
+DSCF5861.jpg
+date:05.2017
+description:Kangaroos at Wrocław Zoo.
+
+DSCF5896.jpg
+date:11.2011
+description: Morskie Oko (Sea's Eye), Tatra mountains, Poland.
+
+DSCF6027.jpg
+date:05.2017
+description: Seal at Wrocław Zoo.
+
+DSCF6238.jpg
+date:08.2009
+description:Firework Championship, Plymouth.
+
+DSCF6469
+date:07.2013
+description: Swallow feeding chick, Borlum Farm, Drumnadrochit.
+
+DSCF6516.jpg
+date:05.2017
+description: A sparrow nibbling on a cake, in the old town of Wrocław.
+
+DSCF7927.jpg
+date:11.2015
+description:Loch an Eilein (Loch of the island), Scottish Highlands.
+
+DSCF7940
+date:07.2017
+description: A robin, on the Great Glen Way near Abriachan.
+
+DSCF8024.jpg
+date:11.2015
+description: A horse near the Rothiemurchus Forest.
+
+DSCF8055.jpg
+date:07.2017
+description: Highland Cow at Camerons Tea Rooms and Farm Shop.
+
+DSCF8573.jpg
+date:08.2017
+description: Holy Stone on Rosemarkie beach, Black Isle.
+
+DSCF9009.jpg
+date:11.2017
+description: A beautiful duck, Lisbon.
+
+DSCF9149.jpg
+date:04.2016
+description: Smoo Cave, Durness, North Scotland.
+
+DSCF9183.jpg
+date:11.2017
+description: A peacock, Lisbon Botanic Gardens.
+
+DSCF9242.jpg
+date:11.2017
+description: Decorative bench in Lisbon Botanic Gardens.
+
+DSCF9376.jpg
+date:04.2016
+description: Razorbills at Whaligoe Steps.
+
+DSCF9380
+date: 12.2017
+description: A grey Squirrel in a park, Plymouth.
+
+DSCF9473.jpg
+date:11.2014
+description: Dunajec river with a view for 'the Three Crowns' peaks. Polish and Slovakian border.
+
+DSCF9516.jpg
+date: 12.2017
+description: Love Doves, the hoe, Plymouth.
+
+DSCF9561.jpg
+date: 12.2017
+description: A Sea Monster eating the moon, Barbican, Plymouth.
+
+DSCF9873.jpg
+date: 10.2014
+description: Spiral Staircase, Kościuszko Mound, Kraków, Poland.
+
+DSCF9914.jpg
+date: 12.2017
+description: Xmas Tree in the snow, Inverness.
+
+DSCF30512.jpg
+date: 07.2011
+description: A couple of grey seals swimming in the sea, Pembrokeshire, Wales.
+
+IMGP0744.jpg
+date: 04.2011
+description: Narrow Street at Barbican,Plymouth.
+
+IMGP0792.jpg
+date: 05.2010
+description: Moss in Wistman's Wood, Dartmoor, England.
+
+IMGP5005.jpg
+date: 01.2010
+description: Pentland Hills in snow, Edinburgh, Scotland.
+
+IMGP5224.jpg
+date: 08.2009
+description: Balloons over Clifton, Bristol Balloon Festival.
+
+IMGP5614
+date: 09.2010
+description: Bath City Centre.
+
+IMGP5973
+date: 11.2009
+description: Cliff path from the Valley of Rocks to Lynmouth.
+
+IMGP7200.jpg
+date: 03.2010
+description: Avebury Stone Circle, Wiltshire, England.
+
+IMGP8580.jpg
+date: 10.2012
+description: Rainbow in Lower Foyers, Loch Ness.
+
+IMGP8594.jpg
+date: 10.2012
+description: Rainbow over Loch Ness, view from Foyers Lodges.
+
+IMGP9176.jpg
+date: 09.2012
+description: Forest in Dores, Loch Ness.
+
+P1010177.jpg
+date: 07.2010
+description: View from Arthur's Seat, Holyrood Park, Edinburgh.
