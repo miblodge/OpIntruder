@@ -22,13 +22,16 @@ $("img").on("click",function(){
   var newDiv=$('<div class = slideshow></div>');
   var divClass = $(this).parent().attr('class');
 
-  $('body').append(newDiv);
 
-//  if ( $('body').has(newDiv)){
-//    newDiv.empty();
-//  }; not executing this
+ if ( $('.slideshow').length > 0){
+   $('.slideshow').empty();
+   $(this).clone().prependTo('.slideshow');
+ } else {
+   $('body').append(newDiv);
+   $(this).clone().prependTo(newDiv);
+ }
 
-  $(this).prependTo(newDiv);
+
   console.log(divClass);
 });
 });
