@@ -44,13 +44,33 @@ allImgs = $('.container div').siblings();
 selectedImgs=[];
 
 $(allImgs).each(function(i){
-  console.log(i+': '+$(this).attr('class'));
+/*  console.log(i+': '+$(this).attr('class'));*/
   if($(this).hasClass(bttnName)) {
-    console.log('has class '+bttnName);
-    selectedImgs.push($(this).clone());
+    /*console.log('has class '+bttnName);*/
+    selectedImgs.push($(this).children().clone());
   }
   });
 
    console.log(selectedImgs);
+
+/* Starts and Stopps the slideshow */
+   var interval;
+   var animationSpeed = 1000;
+   var pause = 3000;
+
+   function startSlideshow(){
+     var interval =  setInterval(function(){
+        /*to be written*/
+        selectedImgs.animate({},animationSpeed);
+      },pause)
+
+   }
+
+
+   /*To do:
+      - cycle through the array of selectedImgs (function to come up with, set interval)
+      (note:choose transition/animation from landscape to portrait)
+      - add pause on mouseenter and start on mouseleave, close on click.
+   */
     });
 });
