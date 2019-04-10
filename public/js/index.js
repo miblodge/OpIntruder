@@ -69,8 +69,8 @@ let next = selectedImgs[i+1];
 console.log(prev);
 console.log(next);
 
-
-
+slideshowDiv.prepend("<img src='"+prev+"'>");
+slideshowDiv.append("<img src='"+next+"'>");
  /*To do:
       - cycle through the array of selectedImgs (function to come up with, set interval)
       (note:choose transition/animation from landscape to portrait)
