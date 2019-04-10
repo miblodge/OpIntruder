@@ -1,6 +1,6 @@
-var bttnName;
-var allImgs;
-var selectedImgs;
+let bttnName;
+let allImgs;
+let selectedImgs;
 
 $(document).ready(function(){
 
@@ -10,7 +10,7 @@ allImgs = $('.container div').siblings();
   $(".container div").hide();
 
 //Shows sellection of photos with class matching menu button id
-  var button = $("button");
+  let button = $("button");
 
   $('button').on('click',function(){
     bttnName = this.id;
@@ -29,8 +29,8 @@ allImgs = $('.container div').siblings();
 
 //Opens up a slideshow viewer
   $("img").on("click",function(){
-    var slideshowDiv=$('<div class = slideshow></div>');
-    var currentImg = $(this);
+    let slideshowDiv=$('<div class = slideshow></div>');
+    let currentImg = $(this);
 
     if ( $('.slideshow').length > 0){
       $('.slideshow').empty();
@@ -47,30 +47,34 @@ $(allImgs).each(function(i){
 /*  console.log(i+': '+$(this).attr('class'));*/
   if($(this).hasClass(bttnName)) {
     /*console.log('has class '+bttnName);*/
-    selectedImgs.push($(this).children().clone());
+    //selectedImgs.push($(this).children().html());
+    selectedImgs.push($(this).children().prop('src'));
   }
   });
 
    console.log(selectedImgs);
+   console.log(currentImg.prop('src'));
 
-/* Starts and Stopps the slideshow */
-   var interval;
-   var animationSpeed = 1000;
-   var pause = 3000;
 
-   function startSlideshow(){
-     var interval =  setInterval(function(){
-        /*to be written*/
-        selectedImgs.animate({},animationSpeed);
-      },pause)
-
+function matchSrc(src){
+     return src == currentImg.prop('src');
    }
 
+let i = selectedImgs.findIndex(matchSrc);
+console.log(i);
 
-   /*To do:
+let prev = selectedImgs[i-1];
+let next = selectedImgs[i+1];
+
+console.log(prev);
+console.log(next);
+
+
+
+ /*To do:
       - cycle through the array of selectedImgs (function to come up with, set interval)
       (note:choose transition/animation from landscape to portrait)
       - add pause on mouseenter and start on mouseleave, close on click.
    */
     });
-});
+})
