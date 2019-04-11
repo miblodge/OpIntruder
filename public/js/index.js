@@ -4,7 +4,7 @@ let selectedImgs;
 
 $(document).ready(function(){
 
-allImgs = $('.container div').siblings();
+  allImgs = $('.container div').siblings();
 
 //Hides the photo grid
   $(".container div").hide();
@@ -31,31 +31,27 @@ allImgs = $('.container div').siblings();
   $("img").on("click",function(){
     let slideshowDiv=$('<div class = slideshow></div>');
     let currentImg = $(this);
+    let selectedImgs=[];
 
     if ( $('.slideshow').length > 0){
       $('.slideshow').empty();
-      $(this).clone().prependTo('.slideshow');
     } else {
       $('body').append(slideshowDiv);
-      $(this).clone().prependTo(slideshowDiv);
     }
 
-//creates a selection of slides maching menu id.
-selectedImgs=[];
+    //creates a selection of slide urls maching menu id.
+    $(allImgs).each(function(i){
+      if($(this).hasClass(bttnName)) {
+        selectedImgs.push($(this).children().prop('src'));
+      }
+    });
 
-$(allImgs).each(function(i){
-/*  console.log(i+': '+$(this).attr('class'));*/
-  if($(this).hasClass(bttnName)) {
-    /*console.log('has class '+bttnName);*/
-    //selectedImgs.push($(this).children().html());
-    selectedImgs.push($(this).children().prop('src'));
-  }
+// inserts selection of slides into slideshow div
+  $(selectedImgs).each(function() {
+    $(".slideshow").append("<img src='"+this+"'>");
   });
 
-   console.log(selectedImgs);
-   console.log(currentImg.prop('src'));
-
-
+// finds index number of currentImg in selectedImgs array
 function matchSrc(src){
      return src == currentImg.prop('src');
    }
@@ -67,10 +63,8 @@ let prev = selectedImgs[i-1];
 let next = selectedImgs[i+1];
 
 console.log(prev);
-console.log(next);
+console.log(next);/*on the last img it returns undefined*/
 
-slideshowDiv.prepend("<img src='"+prev+"'>");
-slideshowDiv.append("<img src='"+next+"'>");
  /*To do:
       - cycle through the array of selectedImgs (function to come up with, set interval)
       (note:choose transition/animation from landscape to portrait)
