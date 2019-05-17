@@ -51,6 +51,9 @@ $(document).ready(function(){
     $(".slideshow").append("<img src='"+this+"'>");
   });
 
+// and hides them
+  $(slideshowDiv).children().hide();
+
 // finds index number of currentImg in selectedImgs array
 function matchSrc(src){
      return src == currentImg.prop('src');
@@ -59,11 +62,14 @@ function matchSrc(src){
 let i = selectedImgs.findIndex(matchSrc);
 console.log(i);
 
+//finds element with maching index inside slideshowDiv and shows it
+$(slideshowDiv).children().eq(i).show();
+
 let prev = selectedImgs[i-1];
 let next = selectedImgs[i+1];
 
-console.log(prev);
-console.log(next);/*on the last img it returns undefined*/
+//console.log(prev);
+//console.log(next);/*on the last img it returns undefined*/
 
  /*To do:
       - cycle through the array of selectedImgs (function to come up with, set interval)
