@@ -57,7 +57,7 @@ nav {
   padding-right: 24em;
 
   margin-top: 2em;
-  
+
   /* ensures padding and margin are included in the size*/
   box-sizing: border-box;
 }
@@ -131,7 +131,7 @@ button {
   grid-row: span 6;
 }
 
-.slideshow {
+#slideshow {
   box-shadow: 2px 2px 5px #1d13b4;
   border: 2px solid #135ab4;
   border-radius: 2px;
@@ -147,7 +147,7 @@ button {
   display: flex;
 }
 
-.slideshow img {
+#slideshow img {
   /*ensures responsive img size*/
   max-width:100%;
   height:auto;
