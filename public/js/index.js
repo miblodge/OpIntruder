@@ -61,12 +61,14 @@ function startSlideshow(slideshowHtml){
 }
 
 function openSlideshow(clickedImg){
-	let slideshowDiv=$('<div id = slideshow></div>');
+	let slideshowDiv= $('<div id = slideshow></div>');
+	let backgroungDiv= $('<div id = background></div>');
 	$currentImg = $(clickedImg);
 
 	if ( $('#slideshow').length > 0){
 		$('#slideshow').empty();
 	} else {
+		$('body').append(backgroungDiv);
 		$('body').append(slideshowDiv);
 	}
 
@@ -78,6 +80,10 @@ function openSlideshow(clickedImg){
 	// and hides them
 	$(slideshowDiv).children().hide();
 	startSlideshow(slideshowDiv);
+}
+
+function slideshowNav(){
+	//button navigation
 }
 
 $(document).ready(function(){

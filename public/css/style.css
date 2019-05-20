@@ -2,7 +2,7 @@
 palette;
 turqoise: #13aab4;
 blue: #135ab4;
-dark blue: #1d13b4;
+dark blue: #1d13b4;		rgb:29, 19, 180,
 purple: #6e13b4;
 hot pink: #b413aa;
 rasberry pink: #b41359;
@@ -145,6 +145,8 @@ button {
 
   background-color: #1d13b4;
   display: flex;
+
+  z-index: 2;
 }
 
 #slideshow img {
@@ -153,4 +155,16 @@ button {
   height:auto;
 
   vertical-align: middle;
+}
+
+
+#background{
+	z-index: 1;
+	background-color:rgba(29, 19, 180, 0.4);
+	min-height: 100%;
+	min-width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
