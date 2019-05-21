@@ -2,6 +2,9 @@ let bttnName;
 let allImgs;
 let selectedImgs;
 let $currentImg;
+let currentSlideshow;
+let i;
+let timing;
 
 function buttonClick(button){
 	bttnName = button.id;
@@ -40,29 +43,39 @@ function matchSrc(src){
      return src == $currentImg.prop('src');
  }
 
+function slideshowTiming(){
+	timing = setTimeout(function(){ nextImg(i,currentSlideshow), console.log(i); }, 3000);
+}
+
+function stopSlideshow(){
+	clearTimeout(timing);
+}
+
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
-
+console.log('inside nextImg');
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
+		console.log('inside if');
 		index = 0;
 	}
-
+	console.log($(slideshow));
 	$(slideshow).eq(index).show();
 	setTimeout(function(){ nextImg(index,slideshow) }, 3000);
 }
 
 function startSlideshow(slideshowHtml){
-	let i = selectedImgs.findIndex(matchSrc);
-
+	console.log('startSlideshow');
+	i = selectedImgs.findIndex(matchSrc);
+	console.log(i);
 	//finds element with maching index inside slideshowDiv and shows it
-	let currentSlideshow= $(slideshowHtml).children();
+	currentSlideshow= $(slideshowHtml).children();
 	let visibleImg =$(currentSlideshow).eq(i);
 	$(visibleImg).show();
-
-	setTimeout(function(){ nextImg(i,currentSlideshow) }, 3000);
-
+	console.log(currentSlideshow);
+	console.log(visibleImg);
+	slideshowTiming();
 }
 
 function openSlideshow(clickedImg){
@@ -82,6 +95,7 @@ if($('#slideshow').length){
 	$(backgroundDiv).on('click', function(){
 		$('#slideshow').hide();
 		$('#background').hide();
+		stopSlideshow();
 	});
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
@@ -117,6 +131,7 @@ $(document).ready(function(){
 
 /*
 Current issues:
+-set timeout function needs to stop,possibly two dublicate timeouts!
 - The second time user clicks on an image from the grid,
  there is 3 seconds delay to the slideshow's start.
  This must be related to the index of each photoin the selected images array
