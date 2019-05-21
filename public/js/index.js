@@ -17,6 +17,9 @@ function buttonClick(button){
 			selectedImgs.push($(this).children().prop('src'));
 		}
 	});
+
+	$('#slideshow').empty();
+
 }
 
 function initiliseButtons(){
@@ -39,6 +42,7 @@ function matchSrc(src){
 
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
+
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
@@ -58,33 +62,42 @@ function startSlideshow(slideshowHtml){
 	$(visibleImg).show();
 
 	setTimeout(function(){ nextImg(i,currentSlideshow) }, 3000);
+
 }
 
 function openSlideshow(clickedImg){
 	let slideshowDiv= $('<div id = slideshow></div>');
-	let backgroungDiv= $('<div id = background></div>');
+	let backgroundDiv= $('<div id = background></div>');
 	$currentImg = $(clickedImg);
 
-	if ( $('#slideshow').length > 0){
-		$('#slideshow').empty();
-	} else {
-		$('body').append(backgroungDiv);
-		$('body').append(slideshowDiv);
-	}
+if($('#slideshow').length){
+	$('#slideshow').show();
+	$('#background').show();
 
+} else {
+	$('body').append(backgroundDiv);
+	$('body').append(slideshowDiv);
+}
+
+	$(backgroundDiv).on('click', function(){
+		$('#slideshow').hide();
+		$('#background').hide();
+	});
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
 		$("#slideshow").append("<img src='"+this+"'>");
 	});
 
 	// and hides them
-	$(slideshowDiv).children().hide();
+	$('#slideshow').children().hide();
 	startSlideshow(slideshowDiv);
 }
 
-function slideshowNav(){
-	//button navigation
-}
+//function slideshowNav(){
+//add slideshow navigation
+//}
+
+
 
 $(document).ready(function(){
 
@@ -99,10 +112,21 @@ $(document).ready(function(){
 	$("img").on("click",function(){
 		openSlideshow(this);
     });
-})
 
-/*To do:
-	 - cycle through the array of selectedImgs (function to come up with, set interval)
-	 (note:choose transition/animation from landscape to portrait)
-	 - add pause on mouseenter and start on mouseleave, close on click.
-  */
+});
+
+/*
+Current issues:
+- The second time user clicks on an image from the grid,
+ there is 3 seconds delay to the slideshow's start.
+ This must be related to the index of each photoin the selected images array
+ and or slideshowdiv itself.
+ - When user presses anothe rmenu button the slideshow doesn't start.
+ The backgroun dimage does appear so issue must be with selected img array
+ or with slideshowdiv content.
+
+ Features to add:
+ - Navigation buttons for the slideshow.
+ - mouse enter and mouse leave behaviour
+ -  adding cgaphicons etc.
+*/
