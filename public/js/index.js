@@ -2,8 +2,6 @@ let bttnName;
 let allImgs;
 let selectedImgs;
 let $currentImg;
-let currentSlideshow;
-let i;
 let timing;
 
 function buttonClick(button){
@@ -43,8 +41,8 @@ function matchSrc(src){
      return src == $currentImg.prop('src');
  }
 
-function slideshowTiming(){
-	timing = setTimeout(function(){ nextImg(i,currentSlideshow), console.log(i); }, 3000);
+function slideshowTiming(index, slideshow){
+	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
 function stopSlideshow(){
@@ -54,28 +52,29 @@ function stopSlideshow(){
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
 console.log('inside nextImg');
+console.log('$slideshow; '+$(slideshow).length);
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
 		console.log('inside if');
 		index = 0;
 	}
-	console.log($(slideshow));
+	console.log('$slideshow; '+$(slideshow));
 	$(slideshow).eq(index).show();
-	setTimeout(function(){ nextImg(index,slideshow) }, 3000);
+	slideshowTiming(index, slideshow);
 }
 
 function startSlideshow(slideshowHtml){
 	console.log('startSlideshow');
-	i = selectedImgs.findIndex(matchSrc);
+	let i = selectedImgs.findIndex(matchSrc);
 	console.log(i);
 	//finds element with maching index inside slideshowDiv and shows it
-	currentSlideshow= $(slideshowHtml).children();
+	let currentSlideshow= $(slideshowHtml).children();
 	let visibleImg =$(currentSlideshow).eq(i);
 	$(visibleImg).show();
 	console.log(currentSlideshow);
 	console.log(visibleImg);
-	slideshowTiming();
+	slideshowTiming(i, currentSlideshow);
 }
 
 function openSlideshow(clickedImg){
@@ -131,11 +130,9 @@ $(document).ready(function(){
 
 /*
 Current issues:
--set timeout function needs to stop,possibly two dublicate timeouts!
-- The second time user clicks on an image from the grid,
- there is 3 seconds delay to the slideshow's start.
- This must be related to the index of each photoin the selected images array
- and or slideshowdiv itself.
+
+- after user stops slideshow and clicks on another img slideshow is not appearin.
+slideshow div is empty and does not refill.
  - When user presses anothe rmenu button the slideshow doesn't start.
  The backgroun dimage does appear so issue must be with selected img array
  or with slideshowdiv content.
