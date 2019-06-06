@@ -4,6 +4,17 @@ let selectedImgs;
 let $currentImg;
 let timing;
 
+function imageSelection(){
+	//creates a selection of slide urls maching menu id.
+	selectedImgs=[];
+
+	$(allImgs).each(function(i){
+		if($(this).hasClass(bttnName)) {
+			selectedImgs.push($(this).children().prop('src'));
+		}
+	});
+}
+// param button is a DOM object of a menu button
 function buttonClick(button){
 	bttnName = button.id;
 
@@ -11,13 +22,7 @@ function buttonClick(button){
 	$(".container div").hide();
 	$("div." +bttnName).show();
 
-	selectedImgs=[];
-	//creates a selection of slide urls maching menu id.
-	$(allImgs).each(function(i){
-		if($(this).hasClass(bttnName)) {
-			selectedImgs.push($(this).children().prop('src'));
-		}
-	});
+	imageSelection();
 
 	$('#slideshow').empty();
 
@@ -52,14 +57,13 @@ function stopSlideshow(){
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
 console.log('inside nextImg');
-console.log('$slideshow; '+$(slideshow).length);
+console.log('$slideshow; '+$('#slideshow').length);
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
 		console.log('inside if');
 		index = 0;
 	}
-	console.log('$slideshow; '+$(slideshow));
 	$(slideshow).eq(index).show();
 	slideshowTiming(index, slideshow);
 }
@@ -69,33 +73,26 @@ function startSlideshow(slideshowHtml){
 	let i = selectedImgs.findIndex(matchSrc);
 	console.log(i);
 	//finds element with maching index inside slideshowDiv and shows it
-	let currentSlideshow= $(slideshowHtml).children();
-	let visibleImg =$(currentSlideshow).eq(i);
+	let $currentSlideshow= $(slideshowHtml).children();
+	let visibleImg =$($currentSlideshow).eq(i);
 	$(visibleImg).show();
-	console.log(currentSlideshow);
-	console.log(visibleImg);
-	slideshowTiming(i, currentSlideshow);
+	slideshowTiming(i, $currentSlideshow);
 }
 
 function openSlideshow(clickedImg){
+	console.log('fn openSlideshow');
 	let slideshowDiv= $('<div id = slideshow></div>');
 	let backgroundDiv= $('<div id = background></div>');
 	$currentImg = $(clickedImg);
 
-if($('#slideshow').length){
-	$('#slideshow').show();
-	$('#background').show();
+	if($('#slideshow').length){
+		$('#slideshow').show();
+		$('#background').show();
 
-} else {
-	$('body').append(backgroundDiv);
-	$('body').append(slideshowDiv);
-}
-
-	$(backgroundDiv).on('click', function(){
-		$('#slideshow').hide();
-		$('#background').hide();
-		stopSlideshow();
-	});
+	} else {
+		$('body').append(backgroundDiv);
+		$('body').append(slideshowDiv);
+	}
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
 		$("#slideshow").append("<img src='"+this+"'>");
@@ -103,7 +100,15 @@ if($('#slideshow').length){
 
 	// and hides them
 	$('#slideshow').children().hide();
-	startSlideshow(slideshowDiv);
+	startSlideshow($("#slideshow"));
+
+	$(backgroundDiv).on('click', function(){
+		$('#slideshow').hide();
+		$('#background').hide();
+		stopSlideshow();
+		$('#slideshow').empty();
+	});
+
 }
 
 //function slideshowNav(){
@@ -133,8 +138,9 @@ Current issues:
 
 - after user stops slideshow and clicks on another img slideshow is not appearin.
 slideshow div is empty and does not refill.
+
  - When user presses anothe rmenu button the slideshow doesn't start.
- The backgroun dimage does appear so issue must be with selected img array
+ The background image does appear so issue must be with selected img array
  or with slideshowdiv content.
 
  Features to add:
