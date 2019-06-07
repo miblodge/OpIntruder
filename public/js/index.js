@@ -56,8 +56,7 @@ function stopSlideshow(){
 
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
-console.log('inside nextImg');
-console.log('$slideshow; '+$('#slideshow').length);
+
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
@@ -127,7 +126,7 @@ $(document).ready(function(){
 	initiliseButtons();
 
 	//Opens up a slideshow viewer
-	$("img").on("click",function(){
+	$(".container img").on("click",function(){
 		openSlideshow(this);
     });
 
