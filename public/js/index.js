@@ -78,6 +78,44 @@ function startSlideshow(slideshowHtml){
 	slideshowTiming(i, $currentSlideshow);
 }
 
+function navButton(navbutton){
+	$(navbutton).on('click',function(){
+		console.log(navbutton);
+	});
+}
+
+function pause(){
+	let pause = $('<button id =pause>pause</button>');
+	$('#slideshow').append(pause);
+	navButton('#pause');
+}
+
+function prev(){
+	let prev = $('<button id = prev>prev</button>');
+	$('#slideshow').append(prev);
+	navButton('#prev');
+}
+
+function next(){
+	let next = $('<button id = next>next</button>');
+	$('#slideshow').append(next);
+	navButton('#next');
+}
+
+function addSlideshowNav(){
+	console.log('entered slideshowNav');
+	prev();
+	pause();
+	next();
+}
+
+function rmSlideshowNav(){
+	console.log('left slideshow');
+	$('#pause').remove();
+	$('#prev').remove();
+	$('#next').remove();
+}
+
 function openSlideshow(clickedImg){
 	console.log('fn openSlideshow');
 	let slideshowDiv= $('<div id = slideshow></div>');
@@ -108,13 +146,8 @@ function openSlideshow(clickedImg){
 		$('#slideshow').empty();
 	});
 
+	$('#slideshow').on('mouseenter',addSlideshowNav).on('mouseleave',rmSlideshowNav);
 }
-
-//function slideshowNav(){
-//add slideshow navigation
-//}
-
-
 
 $(document).ready(function(){
 
@@ -133,14 +166,6 @@ $(document).ready(function(){
 });
 
 /*
-Current issues:
-
-- after user stops slideshow and clicks on another img slideshow is not appearin.
-slideshow div is empty and does not refill.
-
- - When user presses anothe rmenu button the slideshow doesn't start.
- The background image does appear so issue must be with selected img array
- or with slideshowdiv content.
 
  Features to add:
  - Navigation buttons for the slideshow.
