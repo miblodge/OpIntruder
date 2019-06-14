@@ -104,16 +104,12 @@ function next(){
 
 function addSlideshowNav(){
 	console.log('entered slideshowNav');
-	prev();
-	pause();
-	next();
+	$('#nav').show();
 }
 
 function rmSlideshowNav(){
 	console.log('left slideshow');
-	$('#pause').remove();
-	$('#prev').remove();
-	$('#next').remove();
+	$('#nav').hide();
 }
 
 function openSlideshow(clickedImg){
@@ -139,7 +135,6 @@ function openSlideshow(clickedImg){
 		$('body').append(slideshowDiv);
 		$('body').append(navDiv);
 		$('#nav').append(prev, pause,play,next);
-
 	}
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
