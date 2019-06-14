@@ -51,7 +51,7 @@ function slideshowTiming(index, slideshow){
 }
 
 function stopSlideshow(){
-	clearTimeout(timing);
+	//clearTimeout(timing);
 }
 
 // cycels through the images inside slideshow slideshowDiv
@@ -64,7 +64,7 @@ function nextImg(index, slideshow){
 		index = 0;
 	}
 	$(slideshow).eq(index).show();
-	slideshowTiming(index, slideshow);
+	pause(index, slideshow);
 }
 
 function startSlideshow(slideshowHtml){
@@ -78,28 +78,28 @@ function startSlideshow(slideshowHtml){
 	slideshowTiming(i, $currentSlideshow);
 }
 
-function navButton(navbutton){
+function pauseButton(navbutton){
 	$(navbutton).on('click',function(){
-		console.log(navbutton);
+		stopSlideshow();
 	});
 }
 
 function pause(){
-	let pause = $('<button id =pause>pause</button>');
+
 	$('#slideshow').append(pause);
-	navButton('#pause');
+	pauseButton('#pause');
 }
 
 function prev(){
-	let prev = $('<button id = prev>prev</button>');
+
 	$('#slideshow').append(prev);
-	navButton('#prev');
+	pauseButton('#prev');
 }
 
 function next(){
-	let next = $('<button id = next>next</button>');
+
 	$('#slideshow').append(next);
-	navButton('#next');
+	pauseButton('#next');
 }
 
 function addSlideshowNav(){
@@ -118,8 +118,16 @@ function rmSlideshowNav(){
 
 function openSlideshow(clickedImg){
 	console.log('fn openSlideshow');
-	let slideshowDiv= $('<div id = slideshow></div>');
-	let backgroundDiv= $('<div id = background></div>');
+	let slideshowDiv = $('<div id = slideshow></div>');
+	let backgroundDiv = $('<div id = background></div>');
+
+	let navDiv = $('<div id = nav></div>');
+	let prev = $('<button id = prev>prev</button>');
+	let pause = $('<button id =pause>pause</button>');
+	let play = $('<button id = play>play</button>');
+	let next = $('<button id = next>next</button>');
+
+
 	$currentImg = $(clickedImg);
 
 	if($('#slideshow').length){
@@ -129,6 +137,9 @@ function openSlideshow(clickedImg){
 	} else {
 		$('body').append(backgroundDiv);
 		$('body').append(slideshowDiv);
+		$('body').append(navDiv);
+		$('#nav').append(prev, pause,play,next);
+
 	}
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
