@@ -47,15 +47,17 @@ function matchSrc(src){
  }
 
 function slideshowTiming(index, slideshow){
+	console.log(index);
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
 function stopSlideshow(){
-	//clearTimeout(timing);
+	clearTimeout(timing);
 }
 
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
+	console.log('inside nextImg');
 
 	$(slideshow).eq(index).hide();
 
@@ -85,30 +87,22 @@ function pauseButton(navbutton){
 }
 
 function pause(){
-
-	$('#slideshow').append(pause);
 	pauseButton('#pause');
 }
 
 function prev(){
-
-	$('#slideshow').append(prev);
 	pauseButton('#prev');
 }
 
 function next(){
-
-	$('#slideshow').append(next);
 	pauseButton('#next');
 }
 
 function addSlideshowNav(){
-	console.log('entered slideshowNav');
 	$('#nav').show();
 }
 
 function rmSlideshowNav(){
-	console.log('left slideshow');
 	$('#nav').hide();
 }
 
