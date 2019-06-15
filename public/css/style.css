@@ -22,6 +22,7 @@ body {
   padding: 0;
   position:relative;
 }
+
 header {
   text-align: center;
   background: url(../photos/20160405_155841.JPG) no-repeat ;
@@ -142,6 +143,17 @@ button {
 	transform: translate(-50%, -50%);
 }
 
+#frame{
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	width: 70%;
+	height: 100%;
+
+	z-index: 2;
+}
+
 #slideshow {
   box-shadow: 2px 2px 5px #1d13b4;
   border: 2px solid #135ab4;
@@ -156,8 +168,7 @@ button {
 
   background-color: #1d13b4;
   display: flex;
-
-  z-index: 2;
+  z-index: 3;
 }
 
 #slideshow img {
@@ -169,8 +180,9 @@ button {
 }
 
 #nav {
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
-	z-index:3;
+	transform: translate(-50%, -50%);
+	z-index:4;
 }

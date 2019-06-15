@@ -71,6 +71,7 @@ function nextImg(index, slideshow){
 }
 
 function startSlideshow(slideshowHtml){
+	$('#slideshow').children().hide();
 	console.log('startSlideshow');
 	let i = selectedImgs.findIndex(matchSrc);
 	console.log(i);
@@ -81,22 +82,22 @@ function startSlideshow(slideshowHtml){
 	slideshowTiming(i, $currentSlideshow);
 }
 
-function pauseButton(navbutton){
-	$(navbutton).on('click',function(){
-		stopSlideshow();
-	});
+
+
+function play(){
+	startSlideshow($("#slideshow"));
 }
 
 function pause(){
-	pauseButton('#pause');
+	stopSlideshow();
 }
 
 function prev(){
-	pauseButton('#prev');
+	stopSlideshow();
 }
 
 function next(){
-	pauseButton('#next');
+	stopSlideshow();
 }
 
 function addSlideshowNav(){
@@ -107,11 +108,31 @@ function rmSlideshowNav(){
 	$('#nav').hide();
 }
 
+//nav events to be refactored into a function
+
+function initialiseNav(){
+	$('#prev').on('click',function(){
+		prev();
+	});
+	$('#pause').on('click',function(){
+		pause();
+	});
+	$('#next').on('click',function(){
+		next();
+	});
+	$('#play').on('click',function(){
+		play();
+	});
+	$('#slideshow').on('mouseenter',addSlideshowNav);
+	$('#background').on('mouseenter',rmSlideshowNav);
+}
+
 function openSlideshow(clickedImg){
 	console.log('fn openSlideshow');
 	let slideshowDiv = $('<div id = slideshow></div>');
 	let backgroundDiv = $('<div id = background></div>');
 
+	let slideshowFrame = $('<div id = frame></div>');
 	let navDiv = $('<div id = nav></div>');
 	let prev = $('<button id = prev>prev</button>');
 	let pause = $('<button id =pause>pause</button>');
@@ -129,6 +150,7 @@ function openSlideshow(clickedImg){
 		$('body').append(backgroundDiv);
 		$('body').append(slideshowDiv);
 		$('body').append(navDiv);
+		$('body').append(slideshowFrame); //creates buffer left/right of slideshow for prev/next buttons.
 		$('#nav').append(prev, pause,play,next);
 	}
 	// inserts selection of slides into slideshow div
@@ -137,7 +159,7 @@ function openSlideshow(clickedImg){
 	});
 
 	// and hides them
-	$('#slideshow').children().hide();
+
 	startSlideshow($("#slideshow"));
 
 	$(backgroundDiv).on('click', function(){
@@ -147,7 +169,7 @@ function openSlideshow(clickedImg){
 		$('#slideshow').empty();
 	});
 
-	$('#slideshow').on('mouseenter',addSlideshowNav).on('mouseleave',rmSlideshowNav);
+	initialiseNav();
 }
 
 $(document).ready(function(){
