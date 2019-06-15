@@ -47,7 +47,7 @@ function matchSrc(src){
  }
 
 function slideshowTiming(index, slideshow){
-	console.log(index);
+	console.log('slideshowTiming');
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
@@ -58,6 +58,7 @@ function stopSlideshow(){
 // cycels through the images inside slideshow slideshowDiv
 function nextImg(index, slideshow){
 	console.log('inside nextImg');
+	console.log($(slideshow));
 
 	$(slideshow).eq(index).hide();
 
@@ -66,7 +67,7 @@ function nextImg(index, slideshow){
 		index = 0;
 	}
 	$(slideshow).eq(index).show();
-	pause(index, slideshow);
+	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
 function startSlideshow(slideshowHtml){
