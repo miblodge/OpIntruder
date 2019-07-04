@@ -172,7 +172,7 @@ button {
 
 #slideshow img {
   /*ensures responsive img size*/
-  max-width:100%;
+  max-width:90vw;
   height:auto;
   max-height: 90vh;
 
