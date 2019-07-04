@@ -167,7 +167,6 @@ button {
   transform: translate(-50%, -50%);
 
   background-color: #1d13b4;
-  display: flex;
   z-index: 3;
 }
 
@@ -175,6 +174,7 @@ button {
   /*ensures responsive img size*/
   max-width:100%;
   height:auto;
+  max-height: 90vh;
 
   vertical-align: middle;
 }
