@@ -165,6 +165,7 @@ function openSlideshow(clickedImg){
 	$(backgroundDiv).on('click', function(){
 		$('#slideshow').hide();
 		$('#background').hide();
+		$('#frame').hide();
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
