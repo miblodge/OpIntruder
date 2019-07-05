@@ -127,17 +127,24 @@ function initialiseNav(){
 	$('#background').on('mouseenter',rmSlideshowNav);
 }
 
-function openSlideshow(clickedImg){
-	console.log('fn openSlideshow');
-	let slideshowDiv = $('<div id = slideshow></div>');
-	let backgroundDiv = $('<div id = background></div>');
-
-	let slideshowFrame = $('<div id = frame></div>');
+function appendNav(){
 	let navDiv = $('<div id = nav></div>');
 	let prev = $('<button id = prev>prev</button>');
 	let pause = $('<button id =pause>pause</button>');
 	let play = $('<button id = play>play</button>');
 	let next = $('<button id = next>next</button>');
+
+	$('body').append(navDiv);
+	$('#nav').append(prev, pause,play,next);
+
+		initialiseNav();
+}
+
+function openSlideshow(clickedImg){
+
+	let slideshowDiv = $('<div id = slideshow></div>');
+	let backgroundDiv = $('<div id = background></div>');
+	let slideshowFrame = $('<div id = frame></div>');
 
 
 	$currentImg = $(clickedImg);
@@ -149,9 +156,9 @@ function openSlideshow(clickedImg){
 	} else {
 		$('body').append(backgroundDiv);
 		$('body').append(slideshowDiv);
-		$('body').append(navDiv);
 		$('body').append(slideshowFrame); //creates buffer left/right of slideshow for prev/next buttons.
-		$('#nav').append(prev, pause,play,next);
+
+		appendNav();
 	}
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
@@ -169,8 +176,6 @@ function openSlideshow(clickedImg){
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
-
-	initialiseNav();
 }
 
 $(document).ready(function(){
