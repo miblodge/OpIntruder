@@ -42,12 +42,10 @@ function initiliseButtons(){
 
 // finds index number of $currentImg in selectedImgs array
 function matchSrc(src){
-	console.log($currentImg.prop('src'));
      return src == $currentImg.prop('src');
  }
 
 function slideshowTiming(index, slideshow){
-	console.log('slideshowTiming');
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
@@ -55,26 +53,24 @@ function stopSlideshow(){
 	clearTimeout(timing);
 }
 
-// cycels through the images inside slideshow slideshowDiv
+// cycels through the images inside slideshow
 function nextImg(index, slideshow){
-	console.log('inside nextImg');
-	console.log($(slideshow));
 
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
-		console.log('inside if');
 		index = 0;
 	}
 	$(slideshow).eq(index).show();
+	$currentImg = $(slideshow).eq(index);
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
+
 function startSlideshow(slideshowHtml){
 	$('#slideshow').children().hide();
-	console.log('startSlideshow');
 	let i = selectedImgs.findIndex(matchSrc);
-	console.log(i);
+
 	//finds element with maching index inside slideshowDiv and shows it
 	let $currentSlideshow= $(slideshowHtml).children();
 	let visibleImg =$($currentSlideshow).eq(i);
@@ -94,10 +90,21 @@ function pause(){
 
 function prev(){
 	stopSlideshow();
+	let i = selectedImgs.findIndex(matchSrc);
+	$('#slideshow').children().eq(i).hide();
+	$('#slideshow').children().eq(i-1).show();
+	$currentImg = $('#slideshow').children().eq(i-1);
 }
 
 function next(){
 	stopSlideshow();
+	let i = selectedImgs.findIndex(matchSrc);
+	$('#slideshow').children().eq(i).hide();
+	if (++i >= $('#slideshow').children().length){
+		i = 0;
+	}
+	$('#slideshow').children().eq(i).show();
+	$currentImg = $('#slideshow').children().eq(i);
 }
 
 function addSlideshowNav(){
