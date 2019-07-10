@@ -106,13 +106,24 @@ function next(){
 	$('#slideshow').children().eq(i).show();
 	$currentImg = $('#slideshow').children().eq(i);
 }
+function pausePlay(){
 
-function addSlideshowNav(){
-	$('#nav').show();
+}
+function showPause(){
+
+	$('#pause').show();
 }
 
-function rmSlideshowNav(){
-	$('#nav').hide();
+function hidePause(){
+	$('#pause').hide();
+}
+
+function showPlay(){
+	$('#play').show();
+}
+
+function hidePlay(){
+	$('#play').hide();
 }
 
 //nav events to be refactored into a function
@@ -130,42 +141,43 @@ function initialiseNav(){
 	$('#play').on('click',function(){
 		play();
 	});
-	$('#slideshow').on('mouseenter',addSlideshowNav);
-	$('#background').on('mouseenter',rmSlideshowNav);
+
+	$('#slideshow').on('mouseleave',$('#pausePlay').hide());
+	$('#slideshow').on('mouseenter',$('#pausePlay').show());
 }
 
 function appendNav(){
 	let navDiv = $('<div id = nav></div>');
-	let prev = $('<button id = prev>prev</button>');
-	let pause = $('<button id =pause>pause</button>');
-	let play = $('<button id = play>play</button>');
-	let next = $('<button id = next>next</button>');
-
+	let prev = $('<button id = prev class = prev ><i class="material-icons md-48">keyboard_arrow_left</i></button>');
+	let pause = $('<button id =pause ><i class="material-icons md-48">pause</i></button>');
+	let play = $('<button id = play ><i class="material-icons md-48">play_arrow</i></button>');
+	let next = $('<button id = next class = next ><i class="material-icons md-48">keyboard_arrow_right</i></button>');
+	let pausePlay =$('<div id=pausePlay></div>');
 	$('body').append(navDiv);
-	$('#nav').append(prev, pause,play,next);
+	$('#nav').append(prev,next);
+	$('body').append(pausePlay);
+	$('#pausePlay').append(pause,play);
 
 		initialiseNav();
 }
 
 function openSlideshow(clickedImg){
 
-	let slideshowDiv = $('<div id = slideshow></div>');
+	let slideshowDiv = $('<div id = slideshow class = slideshow ></div>');
 	let backgroundDiv = $('<div id = background></div>');
-	let slideshowFrame = $('<div id = frame></div>');
-
 
 	$currentImg = $(clickedImg);
 
 	if($('#slideshow').length){
 		$('#slideshow').show();
 		$('#background').show();
+		$('#nav').show();
+		$('#pausePlay').show();
 
 	} else {
 		$('body').append(backgroundDiv);
-		$('body').append(slideshowDiv);
-		$('body').append(slideshowFrame); //creates buffer left/right of slideshow for prev/next buttons.
-
 		appendNav();
+		$('#nav').append(slideshowDiv);
 	}
 	// inserts selection of slides into slideshow div
 	$(selectedImgs).each(function() {
@@ -179,7 +191,7 @@ function openSlideshow(clickedImg){
 	$(backgroundDiv).on('click', function(){
 		$('#slideshow').hide();
 		$('#background').hide();
-		$('#frame').hide();
+		$('#nav').hide();
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
