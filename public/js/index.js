@@ -78,8 +78,6 @@ function startSlideshow(slideshowHtml){
 	slideshowTiming(i, $currentSlideshow);
 }
 
-
-
 function play(){
 	startSlideshow($("#slideshow"));
 }
@@ -108,7 +106,9 @@ function next(){
 }
 function pausePlay(){
 
+
 }
+
 function showPause(){
 
 	$('#pause').show();
@@ -142,8 +142,6 @@ function initialiseNav(){
 		play();
 	});
 
-	$('#slideshow').on('mouseleave',$('#pausePlay').hide());
-	$('#slideshow').on('mouseenter',$('#pausePlay').show());
 }
 
 function appendNav(){
@@ -172,7 +170,6 @@ function openSlideshow(clickedImg){
 		$('#slideshow').show();
 		$('#background').show();
 		$('#nav').show();
-		$('#pausePlay').show();
 
 	} else {
 		$('body').append(backgroundDiv);
@@ -192,6 +189,7 @@ function openSlideshow(clickedImg){
 		$('#slideshow').hide();
 		$('#background').hide();
 		$('#nav').hide();
+		$('#pausePlay').hide();
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
@@ -203,6 +201,7 @@ $(document).ready(function(){
 
 	//Hides the photo grid
 	$(".container div").hide();
+	$("#pausePlay").hide();
 
 	initiliseButtons();
 
@@ -216,7 +215,8 @@ $(document).ready(function(){
 /*
 
  Features to add:
- - Navigation buttons for the slideshow.
- - mouse enter and mouse leave behaviour
- -  adding cgaphicons etc.
+-pausePlay needs to show and hide relevant button. The lement irself needs to show and hide on mouselave and enter
+-optionally add transition to slideshow
+- create media queries for the css
+
 */

@@ -158,19 +158,15 @@ button {
 	display: grid;
  	grid-template-columns: 1fr auto 1fr;
 	grid-template-areas: "prev slideshow next";
-
+	align-items: center;
 	background-color: RGB(19, 170, 180 ,0.8);
 }
 
 #slideshow {
-  box-shadow: 2px 2px 5px #1d13b4;
-  border: 2px solid #135ab4;
   border-radius: 2px;
-  box-sizing: border-box;
-
-  background-color: #1d13b4;
   max-height: 90vh;
   max-width:90vw;
+  margin-bottom: 0;
 }
 
 #slideshow img {
