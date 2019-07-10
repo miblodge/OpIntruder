@@ -104,9 +104,9 @@ function next(){
 	$('#slideshow').children().eq(i).show();
 	$currentImg = $('#slideshow').children().eq(i);
 }
-function pausePlay(){
 
-
+function switchPausePlay(){
+	console.log("switchPausePlay()");
 }
 
 function showPause(){
@@ -154,7 +154,8 @@ function appendNav(){
 	$('body').append(navDiv);
 	$('#nav').append(prev,next);
 	$('body').append(pausePlay);
-	$('#pausePlay').append(pause,play);
+	$('#pausePlay').append(pause,play).hide();
+		console.log("append pausePlay");
 
 		initialiseNav();
 }
@@ -190,10 +191,20 @@ function openSlideshow(clickedImg){
 		$('#background').hide();
 		$('#nav').hide();
 		$('#pausePlay').hide();
+			console.log("hide pausePlay (background onclick)");
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
+
+	$('#slideshow').on('mouseleave',function(){
+		$('#pausePlay').hide()
+	});
+
+	$('#slideshow').on('mouseenter',function(){
+		$('#pausePlay').show();
+	});
 }
+
 
 $(document).ready(function(){
 
@@ -202,6 +213,7 @@ $(document).ready(function(){
 	//Hides the photo grid
 	$(".container div").hide();
 	$("#pausePlay").hide();
+		console.log("hide pausePlay (document ready)");
 
 	initiliseButtons();
 

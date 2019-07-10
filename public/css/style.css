@@ -152,7 +152,7 @@ button {
 	transform: translate(-50%, -50%);
 	z-index:15;
 
-	width:90vw;
+	width: 70vw;
 	height:90vh;
 
 	display: grid;
@@ -171,7 +171,7 @@ button {
 
 #slideshow img {
   /*ensures responsive img size*/
-  max-width:90vw;
+  max-width:75vw;
   height:auto;
   max-height: 89vh;
 
@@ -188,6 +188,8 @@ button {
 }
 
 button .prev{
+	position: relative;
+	left: 5px;
 	grid-area: prev;
 }
 
@@ -197,12 +199,6 @@ button .next {
 
 .slideshow{
 	  grid-area: slideshow;
-}
-
-#pause{
-}
-
-#play{
 }
 
 .material-icons.md-18 { font-size: 18px; }
