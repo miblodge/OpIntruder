@@ -152,7 +152,7 @@ button {
 	transform: translate(-50%, -50%);
 	z-index:15;
 
-	width: 70vw;
+	max-width: 90vw;
 	height:90vh;
 
 	display: grid;
@@ -160,6 +160,7 @@ button {
 	grid-template-areas: "prev slideshow next";
 	align-items: center;
 	background-color: RGB(19, 170, 180 ,0.8);
+	transition: background-color 2s;
 }
 
 #slideshow {
@@ -167,6 +168,7 @@ button {
   max-height: 90vh;
   max-width:90vw;
   margin-bottom: 0;
+ /* transition: width 2s, height 2s;*/
 }
 
 #slideshow img {

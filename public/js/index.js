@@ -3,6 +3,7 @@ let allImgs;
 let selectedImgs;
 let $currentImg;
 let timing;
+let slideshowRuning;
 
 function imageSelection(){
 	//creates a selection of slide urls maching menu id.
@@ -50,6 +51,7 @@ function slideshowTiming(index, slideshow){
 }
 
 function stopSlideshow(){
+	slideshowRuning = false;
 	clearTimeout(timing);
 }
 
@@ -70,6 +72,7 @@ function nextImg(index, slideshow){
 function startSlideshow(slideshowHtml){
 	$('#slideshow').children().hide();
 	let i = selectedImgs.findIndex(matchSrc);
+	slideshowRuning = true;
 
 	//finds element with maching index inside slideshowDiv and shows it
 	let $currentSlideshow= $(slideshowHtml).children();
@@ -79,11 +82,21 @@ function startSlideshow(slideshowHtml){
 }
 
 function play(){
+	slideshowRuning = true;
 	startSlideshow($("#slideshow"));
+	switchPausePlay();
+	$('#prev').fadeOut();
+	$('#next').fadeOut();
+	$('#nav').css('background','none');
 }
 
 function pause(){
 	stopSlideshow();
+	slideshowRuning = false;
+	switchPausePlay();
+	$('#prev').fadeIn();
+	$('#next').fadeIn();
+	$('#nav').css('background-color', 'RGB(19, 170, 180 ,0.8)');
 }
 
 function prev(){
@@ -106,27 +119,17 @@ function next(){
 }
 
 function switchPausePlay(){
-	console.log("switchPausePlay()");
+
+	if (slideshowRuning == true) {
+		$('#play').hide();
+		$('#pause').show();
+	}
+
+	if (slideshowRuning == false) {
+		$('#pause').hide();
+		$('#play').show();
+	}
 }
-
-function showPause(){
-
-	$('#pause').show();
-}
-
-function hidePause(){
-	$('#pause').hide();
-}
-
-function showPlay(){
-	$('#play').show();
-}
-
-function hidePlay(){
-	$('#play').hide();
-}
-
-//nav events to be refactored into a function
 
 function initialiseNav(){
 	$('#prev').on('click',function(){
@@ -141,7 +144,6 @@ function initialiseNav(){
 	$('#play').on('click',function(){
 		play();
 	});
-
 }
 
 function appendNav(){
@@ -155,7 +157,6 @@ function appendNav(){
 	$('#nav').append(prev,next);
 	$('body').append(pausePlay);
 	$('#pausePlay').append(pause,play).hide();
-		console.log("append pausePlay");
 
 		initialiseNav();
 }
@@ -167,6 +168,7 @@ function openSlideshow(clickedImg){
 
 	$currentImg = $(clickedImg);
 
+// Checks if slideshow html elements exist and if not it adds them
 	if($('#slideshow').length){
 		$('#slideshow').show();
 		$('#background').show();
@@ -185,13 +187,12 @@ function openSlideshow(clickedImg){
 	// and hides them
 
 	startSlideshow($("#slideshow"));
-
+// closes slideshow when user clicks outside the slideshow frame
 	$(backgroundDiv).on('click', function(){
 		$('#slideshow').hide();
 		$('#background').hide();
 		$('#nav').hide();
 		$('#pausePlay').hide();
-			console.log("hide pausePlay (background onclick)");
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
@@ -203,6 +204,11 @@ function openSlideshow(clickedImg){
 	$('#slideshow').on('mouseenter',function(){
 		$('#pausePlay').show();
 	});
+    $('#prev').hide();
+	$('#next').hide();
+	$('#nav').css('background','none');
+	switchPausePlay();
+
 }
 
 
@@ -213,7 +219,6 @@ $(document).ready(function(){
 	//Hides the photo grid
 	$(".container div").hide();
 	$("#pausePlay").hide();
-		console.log("hide pausePlay (document ready)");
 
 	initiliseButtons();
 
@@ -227,7 +232,6 @@ $(document).ready(function(){
 /*
 
  Features to add:
--pausePlay needs to show and hide relevant button. The lement irself needs to show and hide on mouselave and enter
 -optionally add transition to slideshow
 - create media queries for the css
 
