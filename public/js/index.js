@@ -198,12 +198,21 @@ function openSlideshow(clickedImg){
 	});
 
 	$('#slideshow').on('mouseleave',function(){
-		$('#pausePlay').hide()
+		$('#pausePlay').prop("visibility","hidden");
 	});
 
 	$('#slideshow').on('mouseenter',function(){
-		$('#pausePlay').show();
+		$('#pausePlay').prop("visibility","visible").show();
 	});
+
+		//$('#pausePlay').on('mouseleave',function(){
+		//	$('#pausePlay').prop("visibility","hidden");
+		//});
+
+		$('#pausePlay').on('mouseenter',function(){
+			$('#pausePlay').prop("visibility","visible");
+		});
+
     $('#prev').hide();
 	$('#next').hide();
 	$('#nav').css('background','none');
