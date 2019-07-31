@@ -198,11 +198,11 @@ function openSlideshow(clickedImg){
 	});
 
 	$('#slideshow').on('mouseleave',function(){
-		$('#pausePlay').prop("visibility","hidden");
+		$('#pausePlay').css("visibility","hidden");
 	});
 
 	$('#slideshow').on('mouseenter',function(){
-		$('#pausePlay').prop("visibility","visible").show();
+		$('#pausePlay').css("visibility","visible").show();
 	});
 
 		//$('#pausePlay').on('mouseleave',function(){
@@ -210,7 +210,7 @@ function openSlideshow(clickedImg){
 		//});
 
 		$('#pausePlay').on('mouseenter',function(){
-			$('#pausePlay').prop("visibility","visible");
+			$('#pausePlay').css("visibility","visible");
 		});
 
     $('#prev').hide();
