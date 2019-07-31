@@ -15,8 +15,9 @@ function imageSelection(){
 		}
 	});
 }
-// param button is a DOM object of a menu button
+
 function buttonClick(button){
+	// shows image selection by maching button id to image class
 	bttnName = button.id;
 
 	$("#homeImg").hide();
@@ -41,23 +42,26 @@ function initiliseButtons(){
 	});
 }
 
-// finds index number of $currentImg in selectedImgs array
+
 function matchSrc(src){
+	// finds index number of $currentImg in selectedImgs array
      return src == $currentImg.prop('src');
  }
 
 function slideshowTiming(index, slideshow){
+	// creates timing for the slideshow
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
 function stopSlideshow(){
+	// stops timing function
 	slideshowRuning = false;
 	clearTimeout(timing);
 }
 
-// cycels through the images inside slideshow
-function nextImg(index, slideshow){
 
+function nextImg(index, slideshow){
+// cycels through the images inside slideshow
 	$(slideshow).eq(index).hide();
 
 	if (++index >= slideshow.length){
@@ -70,6 +74,7 @@ function nextImg(index, slideshow){
 
 
 function startSlideshow(slideshowHtml){
+	//starts the slideshow from a slide user clicked on
 	$('#slideshow').children().hide();
 	let i = selectedImgs.findIndex(matchSrc);
 	slideshowRuning = true;
@@ -82,6 +87,7 @@ function startSlideshow(slideshowHtml){
 }
 
 function play(){
+	//plays the slideshow and hides navigation arrow buttons
 	slideshowRuning = true;
 	startSlideshow($("#slideshow"));
 	switchPausePlay();
@@ -91,6 +97,7 @@ function play(){
 }
 
 function pause(){
+	//pauses the slideshow and displays navigation arrow buttons
 	stopSlideshow();
 	slideshowRuning = false;
 	switchPausePlay();
@@ -100,6 +107,7 @@ function pause(){
 }
 
 function prev(){
+	// allows user to go to the previous slide one at a time
 	stopSlideshow();
 	let i = selectedImgs.findIndex(matchSrc);
 	$('#slideshow').children().eq(i).hide();
@@ -108,6 +116,7 @@ function prev(){
 }
 
 function next(){
+	// allows user to go to the next slide one at a time
 	stopSlideshow();
 	let i = selectedImgs.findIndex(matchSrc);
 	$('#slideshow').children().eq(i).hide();
@@ -119,6 +128,7 @@ function next(){
 }
 
 function switchPausePlay(){
+	//shows relevant buttons depending if the slideshow is paused or playing
 
 	if (slideshowRuning == true) {
 		$('#play').hide();
@@ -132,6 +142,7 @@ function switchPausePlay(){
 }
 
 function initialiseNav(){
+	// sets navigation functions for each button
 	$('#prev').on('click',function(){
 		prev();
 	});
@@ -147,6 +158,7 @@ function initialiseNav(){
 }
 
 function appendNav(){
+	// creates navigation for slideshow
 	let navDiv = $('<div id = nav></div>');
 	let prev = $('<button id = prev class = prev ><i class="material-icons md-48">keyboard_arrow_left</i></button>');
 	let pause = $('<button id =pause ><i class="material-icons md-48">pause</i></button>');
@@ -184,11 +196,10 @@ function openSlideshow(clickedImg){
 		$("#slideshow").append("<img src='"+this+"'>");
 	});
 
-	// and hides them
-
 	startSlideshow($("#slideshow"));
-// closes slideshow when user clicks outside the slideshow frame
+
 	$(backgroundDiv).on('click', function(){
+	// closes slideshow when user clicks outside the slideshow frame
 		$('#slideshow').hide();
 		$('#background').hide();
 		$('#nav').hide();
@@ -196,7 +207,7 @@ function openSlideshow(clickedImg){
 		stopSlideshow();
 		$('#slideshow').empty();
 	});
-
+	// hides and shows navigation on mouse entering and leaveing slideshow window
 	$('#slideshow').on('mouseleave',function(){
 		$('#pausePlay').css("visibility","hidden");
 	});
@@ -204,15 +215,11 @@ function openSlideshow(clickedImg){
 	$('#slideshow').on('mouseenter',function(){
 		$('#pausePlay').css("visibility","visible").show();
 	});
-
-		//$('#pausePlay').on('mouseleave',function(){
-		//	$('#pausePlay').prop("visibility","hidden");
-		//});
-
-		$('#pausePlay').on('mouseenter',function(){
-			$('#pausePlay').css("visibility","visible");
-		});
-
+	// prevents play and pause button from vanishing when mouse hovers over it
+	$('#pausePlay').on('mouseenter',function(){
+		$('#pausePlay').css("visibility","visible");
+	});
+	// hides navigation buttons
     $('#prev').hide();
 	$('#next').hide();
 	$('#nav').css('background','none');
