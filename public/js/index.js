@@ -85,8 +85,8 @@ function play(){
 	slideshowRuning = true;
 	startSlideshow($("#slideshow"));
 	switchPausePlay();
-	$('#prev').fadeOut();
-	$('#next').fadeOut();
+	$('#prev').fadeOut(2000);
+	$('#next').fadeOut(2000);
 	$('#nav').css('background','none');
 }
 
@@ -237,11 +237,3 @@ $(document).ready(function(){
     });
 
 });
-
-/*
-
- Features to add:
--optionally add transition to slideshow
-- create media queries for the css
-
-*/

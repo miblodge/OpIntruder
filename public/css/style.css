@@ -168,7 +168,6 @@ button {
   max-height: 90vh;
   max-width:90vw;
   margin-bottom: 0;
- /* transition: width 2s, height 2s;*/
 }
 
 #slideshow img {
