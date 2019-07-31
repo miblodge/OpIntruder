@@ -76,6 +76,12 @@ function nextImg(index, slideshow){
 function startSlideshow(slideshowHtml){
 	//starts the slideshow from a slide user clicked on
 	$('#slideshow').children().hide();
+
+	$('html, body').css({
+	//prevents background scrolling
+    overflow: 'hidden',
+    height: '100%'
+});
 	let i = selectedImgs.findIndex(matchSrc);
 	slideshowRuning = true;
 
@@ -156,6 +162,21 @@ function initialiseNav(){
 		play();
 	});
 }
+	$(document).keyup(function(e){
+		//adds keybord navigation with arrow keys and spacebar
+		if(e.keyCode == 39 || e.keyCode == 40){
+			next();
+		} else if (e.keyCode == 37 || e.keyCode == 48){
+			prev();
+		} else if (e.keyCode == 32 && slideshowRuning == false){
+			play();
+		} else if (e.keyCode == 32 && slideshowRuning == true){
+			pause();
+		} else if (e.keycode == 27){
+			console.log('esc');
+			closeSlideshow();
+		}
+	});
 
 function appendNav(){
 	// creates navigation for slideshow
@@ -171,6 +192,22 @@ function appendNav(){
 	$('#pausePlay').append(pause,play).hide();
 
 		initialiseNav();
+}
+
+function closeSlideshow(){
+	$('#slideshow').hide();
+	$('#background').hide();
+	$('#nav').hide();
+	$('#pausePlay').hide();
+
+	stopSlideshow();
+	$('#slideshow').empty();
+
+	$('html, body').css({
+	//restores background scrolling
+		overflow: 'auto',
+		height: 'auto'
+	});
 }
 
 function openSlideshow(clickedImg){
@@ -200,12 +237,7 @@ function openSlideshow(clickedImg){
 
 	$(backgroundDiv).on('click', function(){
 	// closes slideshow when user clicks outside the slideshow frame
-		$('#slideshow').hide();
-		$('#background').hide();
-		$('#nav').hide();
-		$('#pausePlay').hide();
-		stopSlideshow();
-		$('#slideshow').empty();
+		closeSlideshow();
 	});
 	// hides and shows navigation on mouse entering and leaveing slideshow window
 	$('#slideshow').on('mouseleave',function(){
@@ -224,7 +256,6 @@ function openSlideshow(clickedImg){
 	$('#next').hide();
 	$('#nav').css('background','none');
 	switchPausePlay();
-
 }
 
 
