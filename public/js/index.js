@@ -27,7 +27,6 @@ function buttonClick(button){
 	imageSelection();
 
 	$('#slideshow').empty();
-
 }
 
 function initiliseButtons(){
@@ -35,13 +34,11 @@ function initiliseButtons(){
 	$('button').on('click',function(){
 		buttonClick(this);
     });
-
 	//Hides the photo grid and shows home img istead
 	$("#home").on("click", function(){
 		$("#homeImg").show();
 	});
 }
-
 
 function matchSrc(src){
 	// finds index number of $currentImg in selectedImgs array
@@ -59,7 +56,6 @@ function stopSlideshow(){
 	clearTimeout(timing);
 }
 
-
 function nextImg(index, slideshow){
 // cycels through the images inside slideshow
 	$(slideshow).eq(index).hide();
@@ -72,11 +68,9 @@ function nextImg(index, slideshow){
 	timing = setTimeout(function(){ nextImg(index,slideshow)}, 3000);
 }
 
-
 function startSlideshow(slideshowHtml){
 	//starts the slideshow from a slide user clicked on
 	$('#slideshow').children().hide();
-
 	$('html, body').css({
 	//prevents background scrolling
     overflow: 'hidden',
@@ -85,7 +79,7 @@ function startSlideshow(slideshowHtml){
 	let i = selectedImgs.findIndex(matchSrc);
 	slideshowRuning = true;
 
-	//finds element with maching index inside slideshowDiv and shows it
+	//finds element with maching index inside slideshowDiv and shows it:
 	let $currentSlideshow= $(slideshowHtml).children();
 	let visibleImg =$($currentSlideshow).eq(i);
 	$(visibleImg).show();
@@ -135,7 +129,6 @@ function next(){
 
 function switchPausePlay(){
 	//shows relevant buttons depending if the slideshow is paused or playing
-
 	if (slideshowRuning == true) {
 		$('#play').hide();
 		$('#pause').show();
@@ -149,34 +142,28 @@ function switchPausePlay(){
 
 function initialiseNav(){
 	// sets navigation functions for each button
-	$('#prev').on('click',function(){
-		prev();
-	});
-	$('#pause').on('click',function(){
-		pause();
-	});
-	$('#next').on('click',function(){
-		next();
-	});
-	$('#play').on('click',function(){
-		play();
-	});
-}
+	$('#prev').on('click',function(){ prev();});
+	$('#pause').on('click',function(){ pause();});
+	$('#next').on('click',function(){ next();});
+	$('#play').on('click',function(){ play();});
+
 	$(document).keyup(function(e){
 		//adds keybord navigation with arrow keys and spacebar
 		if(e.keyCode == 39 || e.keyCode == 40){
 			next();
-		} else if (e.keyCode == 37 || e.keyCode == 48){
+		} else if (e.keyCode == 37 || e.keyCode == 38){
 			prev();
 		} else if (e.keyCode == 32 && slideshowRuning == false){
 			play();
 		} else if (e.keyCode == 32 && slideshowRuning == true){
 			pause();
-		} else if (e.keycode == 27){
+		} else if (e.keyCode == 27){
 			console.log('esc');
 			closeSlideshow();
 		}
 	});
+}
+
 
 function appendNav(){
 	// creates navigation for slideshow
@@ -257,7 +244,6 @@ function openSlideshow(clickedImg){
 	$('#nav').css('background','none');
 	switchPausePlay();
 }
-
 
 $(document).ready(function(){
 

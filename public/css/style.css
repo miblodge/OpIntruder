@@ -72,6 +72,14 @@ button {
   color: #f1c40f;
 }
 
+button:focus{
+	font-weight: bolder;
+}
+
+button:hover{
+	font-weight: bolder;
+}
+
 #homeImg {
   margin-top: 1em;
   display:flex;
