@@ -47,22 +47,19 @@ h2 {
   font-style: italic;
   color:  #13aab4;
   text-shadow: 2px 2px 5px #135ab4;
+  margin-bottom: 2em;
 }
 
 nav {
   background-color: #135ab4;
   opacity: 0.9;
-
   display:flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
   padding: 0.5em;
-  padding-left: 24em;
-  padding-right: 24em;
-
-  margin-top: 2em;
-
-  /* ensures padding and margin are included in the size*/
   box-sizing: border-box;
+  height: 2em;
 }
 
 button {
@@ -70,6 +67,7 @@ button {
   background: none;
   border-style: none;
   color: #f1c40f;
+  height:2em;
 }
 
 button:focus{

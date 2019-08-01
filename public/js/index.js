@@ -27,6 +27,13 @@ function buttonClick(button){
 	imageSelection();
 
 	$('#slideshow').empty();
+
+		if (bttnName !== 'home'){
+			console.log('not home');
+			//hides header image and text
+			$('header').slideUp(3000);
+		}
+
 }
 
 function initiliseButtons(){
@@ -36,6 +43,8 @@ function initiliseButtons(){
     });
 	//Hides the photo grid and shows home img istead
 	$("#home").on("click", function(){
+		//shows header image and text
+		$('header').slideDown(3000);
 		$("#homeImg").show();
 	});
 }
