@@ -70,6 +70,12 @@ button {
   height:2em;
 }
 
+button::-moz-focus-inner {
+	/*removes ugly dotted outline from buttons*/
+  border: 0;
+}
+
+
 button:focus{
 	font-weight: bolder;
 }
