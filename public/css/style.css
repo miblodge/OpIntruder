@@ -31,7 +31,7 @@ header {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  width: 100%;
+  width:100vw;
 }
 
 h1 {
@@ -59,15 +59,13 @@ nav {
   width:100vw;
   padding: 0.5em;
   box-sizing: border-box;
-  height: 2em;
 }
 
 button {
-  font-size: 1em;
+  font-size: 1.5em;
   background: none;
   border-style: none;
   color: #f1c40f;
-  height:2em;
 }
 
 button::-moz-focus-inner {
@@ -88,6 +86,7 @@ button:hover{
   margin-top: 1em;
   display:flex;
   justify-content: center;
+  width:100vw;
 }
 
 #homeImg img {
@@ -108,6 +107,7 @@ button:hover{
   grid-auto-flow: dense;
 
   box-sizing: border-box;
+  width:100vw;
 }
 
 .container div{
@@ -218,3 +218,28 @@ button .next {
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
+
+@media only screen and (max-width: 550px){
+nav {
+	display:grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 1em;
+}
+}
+
+@media only screen and (max-width: 350px){
+nav {
+	display:grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 1em;
+}
+
+@media only screen and (max-width: 320px){
+nav {
+	display:flex;
+	flex-direction: column;
+}
+
+}
