@@ -1,14 +1,17 @@
 /*
 palette;
 turqoise: #13aab4;		rgb  19, 170, 180
-blue: #135ab4;
-dark blue: #1d13b4;		rgb:29, 19, 180,
-purple: #6e13b4;
-hot pink: #b413aa;
-rasberry pink: #b41359;
-yellow:  #f1c40f;
-green:  #13b46d;
+off-black: #090909;
 
+blue: #135ab4;
+off-black2: #111;
+
+dark blue: #1d13b4;		rgb:29, 19, 180,
+dark grey: #222;
+
+
+yellow:  #f1c40f;
+light grey: #ddd;
 
 */
 html{
@@ -17,7 +20,7 @@ html{
 }
 
 body {
-  background-color:  #13aab4;
+  background-color:  #090909;
   margin: 0;
   padding: 0;
   position:relative;
@@ -25,7 +28,8 @@ body {
 
 header {
   text-align: center;
-  background: url(../photos/20160405_155841.JPG) no-repeat ;
+  background: url(../photos/opintruder-easter.jpg) center no-repeat ;
+  background-size: 100% auto;
   margin: 0;
   height: 400px;
   display: flex;
@@ -37,21 +41,21 @@ header {
 h1 {
   font-family: 'Lora', serif;
   font-size: 3em;
-  color: #13aab4;
-  text-shadow: 2px 2px 5px #135ab4;
+  color: #090909;
+  text-shadow: 2px 2px 5px #111;
 }
 
 h2 {
   font-family: 'Lora', serif;
   font-size: 2em;
   font-style: italic;
-  color:  #13aab4;
-  text-shadow: 2px 2px 5px #135ab4;
+  color:  #090909;
+  text-shadow: 2px 2px 5px #111;
   margin-bottom: 2em;
 }
 
 nav {
-  background-color: #135ab4;
+  background-color: #111;
   opacity: 0.9;
   display:flex;
   justify-content: center;
@@ -65,7 +69,7 @@ button {
   font-size: 1.5em;
   background: none;
   border-style: none;
-  color: #f1c40f;
+  color: #ddd;
 }
 
 button::-moz-focus-inner {
@@ -90,8 +94,8 @@ button:hover{
 }
 
 #homeImg img {
-  box-shadow: 2px 2px 5px #1d13b4;
-  border: 2px solid #135ab4;
+  box-shadow: 2px 2px 5px #222;
+  border: 2px solid #111;
   border-radius: 2px;
   box-sizing: border-box;
 }
@@ -116,7 +120,7 @@ button:hover{
 
   border-style: none;
   border-radius: 3px;
-  box-shadow: 2px 2px 5px #1d13b4;
+  box-shadow: 2px 2px 5px #222;
 }
 
 .container div img {
@@ -148,7 +152,7 @@ button:hover{
 
 #background{
 	z-index: 1;
-	background-color:rgba(29, 19, 180, 0.4);
+	background-color:rgba(69, 69, 69, 0.4);
 	min-height: 100%;
 	min-width: 100%;
 	position: absolute;
@@ -171,7 +175,7 @@ button:hover{
  	grid-template-columns: 1fr auto 1fr;
 	grid-template-areas: "prev slideshow next";
 	align-items: center;
-	background-color: RGB(19, 170, 180 ,0.8);
+	background-color: rgba(19, 19, 19 ,0.8);
 	transition: background-color 2s;
 }
 
@@ -220,26 +224,26 @@ button .next {
 .material-icons.md-48 { font-size: 48px; }
 
 @media only screen and (max-width: 550px){
-nav {
-	display:grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
-	grid-gap: 1em;
-}
+  nav {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1em;
+  }
 }
 
 @media only screen and (max-width: 350px){
-nav {
-	display:grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr;
-	grid-gap: 1em;
+  nav {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1em;
+  }
 }
 
 @media only screen and (max-width: 320px){
-nav {
-	display:flex;
-	flex-direction: column;
-}
-
+  nav {
+    display:flex;
+    flex-direction: column;
+  }
 }

@@ -112,7 +112,7 @@ function pause(){
 	switchPausePlay();
 	$('#prev').fadeIn();
 	$('#next').fadeIn();
-	$('#nav').css('background-color', 'RGB(19, 170, 180 ,0.8)');
+	$('#nav').css('background-color', 'rgba(19, 19, 19, 0.8)');
 }
 
 function prev(){
