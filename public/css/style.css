@@ -28,10 +28,10 @@ body {
 
 header {
   text-align: center;
-  background: url(../manual/opintruder-easter.jpg) center no-repeat ;
+  background: url(../about/Header2.png) center no-repeat ;
   background-size: 100% auto;
   margin: 0;
-  height: 400px;
+  height: 380px;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -41,7 +41,7 @@ header {
 h1 {
   font-family: 'Lora', serif;
   font-size: 3em;
-  color: #090909;
+  color: #ffffff;
   text-shadow: 2px 2px 5px #111;
 }
 
