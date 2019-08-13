@@ -24,6 +24,10 @@ body {
   margin: 0;
   padding: 0;
   position:relative;
+
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
 }
 
 header {
@@ -84,6 +88,46 @@ button:focus{
 
 button:hover{
 	font-weight: bolder;
+}
+
+a {
+  text-decoration: none;
+  color: aqua;
+}
+
+a:visited {
+  color: aquamarine;
+ 
+}
+
+a:focus, a:hover {
+  color: lawngreen;
+}
+
+#homeImg h1{
+  font-family: 'Lora', serif;
+  font-size: 3em;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #111;
+}
+
+#homeImg h2{
+  font-family: 'Lora', serif;
+  font-size: 2em;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #111;
+}
+
+#homeImg h3{
+  font-family: 'Lora', serif;
+  font-size: 1.5em;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px #111;
+}
+
+#homeImg p{
+ width: 80vw;
+ font-size: 1em;
 }
 
 #homeImg {
@@ -223,6 +267,14 @@ button .next {
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 
+@media only screen and (max-width: 750px){
+#nav {
+  background: rgba(19, 19, 19, 0.0);
+}
+#nav button{
+  visibility: hidden;
+}
+}
 @media only screen and (max-width: 550px){
   nav {
     display:grid;
