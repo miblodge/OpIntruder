@@ -271,11 +271,9 @@ button .next {
 .material-icons.md-48 { font-size: 48px; }
 
 @media only screen and (max-width: 750px){
-#nav {
-  background: rgba(19, 19, 19, 0.0);
-}
+
 #nav button{
-  visibility: hidden;
+  display: none !important;
 }
 }
 @media only screen and (max-width: 550px){
