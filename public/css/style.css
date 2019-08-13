@@ -128,6 +128,9 @@ a:focus, a:hover {
 #homeImg p{
  width: 80vw;
  font-size: 1em;
+ text-align: left;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 #homeImg {
