@@ -32,7 +32,7 @@ body {
 
 header {
   background: url(../about/Banner2019.png) center no-repeat ;
-  background-size: 100%;
+  background-size: auto 490px;
   margin: 0;
   height: 490px;
 }
