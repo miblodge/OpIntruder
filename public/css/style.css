@@ -31,15 +31,10 @@ body {
 }
 
 header {
-  text-align: center;
-  background: url(../about/Header2.png) center no-repeat ;
-  background-size: 100% auto;
+  background: url(../about/Banner2019.png) center no-repeat ;
+  background-size: 100%;
   margin: 0;
-  height: 380px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  width:100vw;
+  height: 490px;
 }
 
 h1 {
@@ -275,6 +270,7 @@ button .next {
 #nav button{
   display: none !important;
 }
+
 }
 @media only screen and (max-width: 550px){
   nav {
